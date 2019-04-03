@@ -5,7 +5,6 @@ import { fetchMovies } from '../actions';
 class MovieList extends React.Component {
 
   renderList() {
-    console.log('movies', this.props.movies);
     return this.props.movies.map(movie => {
       return (
         <tr key={movie.id}>
@@ -18,7 +17,6 @@ class MovieList extends React.Component {
   }
 
   render() {
-    // return <div className="ui relaxed divided list">{this.renderList()}</div>;
     return (<table className="ui basic table">
       <thead>
         <tr><th>Title</th>
