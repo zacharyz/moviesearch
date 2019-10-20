@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchMovies } from '../actions';
 
-class MovieList extends React.Component {
+const MovieList = (props) =>  {
 
-  renderList() {
-    return this.props.movies.map(movie => {
+  const renderList = () => {
+    return props.movies.map(movie => {
       return (
         <tr key={movie.id}>
           <td data-label="Title">{movie.title}</td>
@@ -16,22 +16,22 @@ class MovieList extends React.Component {
     });
   }
 
-  render() {
-    return (<table className="ui basic table">
+  return (
+    <table className="ui basic table">
       <thead>
         <tr><th>Title</th>
           <th>Release Date</th>
           <th>Summary</th>
         </tr></thead>
       <tbody>
-        {this.renderList()}
+        {renderList()}
         
       </tbody>
-    </table>);
-  }
+    </table>
+  );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { movies: state.movies };
 };
 
